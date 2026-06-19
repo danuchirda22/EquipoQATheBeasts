@@ -1,0 +1,14 @@
+{
+  "firstname": "Alicia",
+  "lastname": "Dri",
+  "email": "alicia.dri@test.com",
+  "phone": "543775457889",
+  "checkin": "2026-06-18",
+  "checkout": "2026-06-21",
+  "roomType": "Double",
+  "expectedNights": 3,
+  "expectedTotal": 490,
+  "cleaningFee": 25,
+  "serviceFee": 15,
+  "pricePerNight": 150
+}
