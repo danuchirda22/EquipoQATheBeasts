@@ -100,3 +100,21 @@ Cypress.Commands.add('verifyBookingConfirmation', () => {
 Cypress.Commands.add('verifyTotalNotVisible', (expectedTotal) => {
     cy.contains(`Total: £${expectedTotal}`).should('not.exist')
 })
+
+
+Cypress.Commands.add('fillContactForm', (name, email, phone, subject, message) => {
+  cy.get('[data-testid="ContactName"]').clear();
+  if (name) cy.get('[data-testid="ContactName"]').type(name);
+
+  cy.get('[data-testid="ContactEmail"]').clear();
+  if (email) cy.get('[data-testid="ContactEmail"]').type(email);
+
+  cy.get('[data-testid="ContactPhone"]').clear();
+  if (phone) cy.get('[data-testid="ContactPhone"]').type(phone);
+
+  cy.get('[data-testid="ContactSubject"]').clear();
+  if (subject) cy.get('[data-testid="ContactSubject"]').type(subject);
+
+  cy.get('[data-testid="ContactDescription"]').clear();
+  if (message) cy.get('[data-testid="ContactDescription"]').type(message);
+})

@@ -203,3 +203,72 @@ describe('Módulo 3.1 - Reserva exitosa como usuario invitado', () => {
     })
   })
 })
+
+
+describe('Formulario de Contacto - Validaciones', () => {
+
+  let data;
+
+  before(() => {
+    cy.fixture('contactForm').then((fixtureData) => {
+      data = fixtureData;
+    });
+  });
+
+  beforeEach(() => {
+    cy.visit('https://automationintesting.online/');
+
+    cy.contains('Send Us a Message')
+      .scrollIntoView()
+      .should('be.visible');
+  });
+
+  it('CF-1.0 - Phone con menos de 11 caracteres', () => {
+
+    cy.fillContactForm(
+      data.validUser.name,
+      data.validUser.email,
+      data.shortPhone,
+      data.validUser.subject,
+      data.validUser.message
+    );
+
+    cy.contains('button', 'Submit').click();
+
+    cy.contains('Phone must be between 11 and 21 characters')
+      .should('be.visible');
+  });
+
+  it('CF-2.0 - Phone con más de 21 caracteres', () => {
+
+    cy.fillContactForm(
+      data.validUser.name,
+      data.validUser.email,
+      data.longPhone,
+      data.validUser.subject,
+      data.validUser.message
+    );
+
+    cy.contains('button', 'Submit').click();
+
+    cy.contains('Phone must be between 11 and 21 characters')
+      .should('be.visible');
+  });
+
+  it('CF-3.0 - Name vacío', () => {
+
+    cy.fillContactForm(
+      '',
+      data.validUser.email,
+      data.validUser.phone,
+      data.validUser.subject,
+      data.validUser.message
+    );
+
+    cy.contains('button', 'Submit').click();
+
+    cy.contains('Name may not be blank')
+      .should('be.visible');
+  });
+
+});

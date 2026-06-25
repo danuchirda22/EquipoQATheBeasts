@@ -1,0 +1,11 @@
+{
+    "validUser": {
+      "name": "Maria",
+      "email": "maria@marta.com",
+      "phone": "12345678901",
+      "subject": "Servicio de wifi",
+      "message": "Consulta por disponibilidad wifi"
+    },
+    "shortPhone": "1234567890",
+    "longPhone": "1234567890123456789012"
+  }
