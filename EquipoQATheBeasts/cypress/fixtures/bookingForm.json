@@ -1,0 +1,8 @@
+{
+  "validBooking": {
+    "firstname": "Juan",
+    "lastname": "Perez",
+    "email": "juanperez@gmail.com",
+    "phone": "35145678911"
+  }
+}
