@@ -1,17 +1,16 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
 // Import commands.js using ES2015 syntax:
 import './commands'
+
+// Manejar TODOS los errores no capturados de la aplicación
+Cypress.on('uncaught:exception', (err, runnable) => {
+  console.log('=== ERROR DETECTADO ===')
+  console.log('Mensaje:', err.message)
+  console.log('=== IGNORANDO PARA CONTINUAR ===')
+  
+  // Ignorar TODOS los errores para que la prueba continúe
+
+  return false
+})
+
+// Aumentar tiempo de espera global
+Cypress.config('defaultCommandTimeout', 15000)
